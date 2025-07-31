@@ -1,0 +1,107 @@
+/* ******************************************** */
+/* ************** Common Section ************** */
+/* ******************************************** */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ******************************************** */
+/* *************** Home Section *************** */
+/* ******************************************** */
+.home-left {
+  background-color: rgba(40, 167, 69, 1);
+  border-radius: 18px;
+  margin: 126px 29px 126px 179px;
+  padding: 7px;
+}
+
+.umbrella-image {
+  height: 460px;
+  border-radius: 18px;
+}
+
+.home-right {
+  margin-top: 200px;
+}
+
+.home-right-logo {
+  color: transparent;
+  font-size: 64px;
+  padding: 10px 10px 10px 0px;
+  border-radius: 5px;
+  background: linear-gradient(to right, rgba(40, 167, 69, 1), #95ffac);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-left: 30px;
+}
+
+.home-right-title {
+  font-size: 52px;
+  margin-bottom: 2px;
+  margin-left: 30px;
+}
+
+.home-right-second-title {
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.started-btn {
+  background-color: rgba(40, 167, 69, 1);
+  color: white;
+  font-size: 20px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  border: 3px solid rgba(40, 167, 69, 1);
+  border-radius: 5px;
+  margin-left: 30px;
+}
+
+.started-btn:hover {
+  color: rgba(40, 167, 69, 1);
+  border: 3px solid dark;
+  background-color: white;
+  border-radius: 7px;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 3px 7px;
+  margin-top: 3px;
+  margin-left: 24px;
+  transition: background-color 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .home-left {
+    background-color: rgba(40, 167, 69, 1);
+    border-radius: 18px;
+    margin: 90px 35px 50px 35px;
+    padding: 7px;
+  }
+
+  .umbrella-image {
+    height: 241px;
+    border-radius: 18px;
+  }
+
+  .home-right {
+    margin-top: 60px;
+  }
+
+  .started-btn {
+    margin-top: 70px;
+    padding: 5px 60px;
+  }
+
+  .started-btn:hover {
+    padding: 3px 56px;
+    margin-top: 66px;
+  }
+}
