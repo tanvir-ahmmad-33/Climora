@@ -19,7 +19,7 @@ body {
 body {
   height: 100vh;
   position: relative;
-  background-image: url("/Climora/assets/image/mainpage-background.jpg");
+  background-image: url("https://tanvir-ahmmad-33.github.io/Climora/assets/image/mainpage-background.jpg");
   background-size: cover;
   background-position: center;
 }
