@@ -132,7 +132,7 @@ body::after {
   width: 100%;
   margin: 0px 115px 0px 115px;
   border-radius: 15px;
-  background-image: url("/assets/image/forecast.jpg");
+  background-image: url("https://tanvir-ahmmad-33.github.io/Climora/assets/image/forecast.jpg");
   background-size: cover;
   background-position: center;
   padding-top: 260px;
