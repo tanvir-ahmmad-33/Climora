@@ -9,8 +9,29 @@ $("#started-btn").on("click", function (e) {
 // ******************************************************************************
 // ************ Navigate to index.html when the home icon is clicked ************
 // ******************************************************************************
-$(".home-icon").on("click", function () {
+$("#home-icon").on("click", function () {
   window.location.href = "index.html";
+});
+
+// ******************************************************************************
+// ********* Navigate to forecast.html when the forecast icon is clicked **********
+// ******************************************************************************
+$("#forecast-weather-icon").on("click", function () {
+  window.location.href = "forecast.html";
+});
+
+// ******************************************************************************
+// ************* Navigate to news.html when the news icon is clicked ************
+// ******************************************************************************
+$("#news-icon").on("click", function () {
+  window.location.href = "news.html";
+});
+
+// ******************************************************************************
+// ************* Navigate to news.html when the news icon is clicked ************
+// ******************************************************************************
+$("#weather-icon").on("click", function () {
+  window.location.href = "homepage.html";
 });
 
 // *******************************************************************************
@@ -192,3 +213,28 @@ $(".fahrenheit-btn").on("click", function () {
     $(".celsius-btn").removeClass("btn-success").addClass("border border-1 border-success");
   }
 });
+
+// ******************************************************************************
+// *************** Function to generate dates for the next 5 days ***************
+// ******************************************************************************
+
+function generateForecastDays() {
+  const today = new Date();
+  console.log(today);
+
+  for (let i = 1; i <= 5; i++) {
+    const forecastDate = new Date(today);
+    forecastDate.setDate(today.getDate() + i);
+
+    const optionText = forecastDate.toLocaleDateString("en-GB", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+    });
+    const optionValue = i;
+
+    $("#forecast-day").append(`<option value="${optionValue}">${optionText}</option>`);
+  }
+}
+
+generateForecastDays();

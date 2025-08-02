@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Climora - Weather App</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/forecast.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- nav section start -->
+      <div class="row">
+        <div class="col-6 col-lg-6">
+          <div class="icons">
+            <i class="fa-solid fa-house-chimney" id="home-icon"></i>
+            <i class="fas fa-sun" id="weather-icon"></i>
+            <i class="fa-solid fa-newspaper" id="news-icon"></i>
+          </div>
+        </div>
+        <div class="col-6 col-lg-6">
+          <div class="time-box text-center">
+            <h6 id="location-time">...</h6>
+          </div>
+        </div>
+      </div>
+      <!-- nav section end -->
+
+      <!-- forecast section start -->
+      <div class="row">
+        <div class="forecast-boxes">
+          <!-- before search -->
+          <div id="forecat-search-box">
+            <div class="col-12 text-center">
+              <nav class="navbar d-flex justify-content-center">
+                <form class="form-inline">
+                  <input type="text" name="forecats-city" class="form-control mr-sm-2" id="search-city-box" placeholder="Enter city name" aria-label="Search" />
+                  <select name="forecast-day" id="forecast-day" class="form-control mr-sm-2">
+                    <option value="" class="default-option">Focast date</option>
+                  </select>
+                  <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+                </form>
+              </nav>
+              <span class="text-danger" id="note-text">The forecast is available for the next 5 days</span>
+            </div>
+            <h1 id="search-heading" class="text-center text-muted">Check the weather forecast for the city</h1>
+          </div>
+
+          <!-- after search -->
+        </div>
+      </div>
+      <!-- forecast section end -->
+
+      <!-- footer section -->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center" id="footer">
+              <h6 class="developer-details">Developed by <span id="developer">Tanvir Ahmmad</span> &copy;2025 All Rights Reserved</h6>
+              <span class="data-credit text-muted"> Weather data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer section -->
+    </div>
+
+    <!-- jQuery CDN (Full Version) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
