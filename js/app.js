@@ -286,10 +286,11 @@ $("#forecast-form").on("submit", function (e) {
   $("#forecat-search-result-box").removeClass("d-none");
 
   forecastDayIdx = Number(forecastDayIdx);
+  console.log(forecastDayIdx);
 
   const today = new Date();
   const forecast = new Date(today);
-  forecast.setDate(today.getDate() + 1);
+  forecast.setDate(today.getDate() + forecastDayIdx);
   const forecastCheck = forecast.toISOString().split("T")[0];
   const forecastDate =
     forecast.toLocaleDateString("en-GB", {
