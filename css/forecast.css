@@ -123,7 +123,7 @@ body::after {
 }
 
 /* ********************************************** */
-/* ************** Forecast Section ************** */
+/* ******* Forecast Section (Before Click) ****** */
 /* ********************************************** */
 
 .forecast-boxes {
@@ -135,7 +135,7 @@ body::after {
   background-image: url("https://tanvir-ahmmad-33.github.io/Climora/assets/image/forecast.jpg");
   background-size: cover;
   background-position: center;
-  padding-top: 258px;
+  padding-top: 260px;
 }
 
 #forecat-search-box {
@@ -155,11 +155,14 @@ body::after {
   height: 44px;
 }
 
-.default-option {
-  opacity: 0.1;
+.option-size {
+  opacity: 0.8;
+  font-size: 16px;
 }
 
 #search-btn {
+  height: 45px;
+  width: 100px;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -170,15 +173,16 @@ body::after {
 
 #note-text {
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 3px 5px 3px 5px;
+  padding: 5px 7px 5px 7px;
   border-radius: 3px;
   font-weight: 600;
   font-size: 13px;
+  opacity: 0.7;
 }
 
 #search-heading {
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  margin-top: 65px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 60px;
 }
 
 @media (max-width: 576px) {
@@ -186,6 +190,67 @@ body::after {
     height: 80vh;
     margin: 10px 15px 0px 15px;
   }
+}
+/* ********************************************** */
+/* ******* Forecast Section (After Click) ******* */
+/* ********************************************** */
+
+#focast-date-title {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.forecast-describe-box {
+  height: 230px;
+  background-color: rgba(40, 167, 69, 1);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.forecast-describe-box-element-left {
+  margin: 3px 3px 3px 10px;
+}
+
+.forecast-describe-box-element-right {
+  margin: 3px 10px 3px 2px;
+}
+
+.forecast-describe-box-title {
+  font-size: 22px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.forecast-describe-box-feels-like {
+  font-size: 14px;
+  margin-bottom: 0px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-describe-box-codition {
+  font-size: 12px;
+  margin-bottom: 3px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-describe-box-temperature {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-describe-box-element {
+  margin-top: 2px;
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+
+.forecast-describe-box-element-amount {
+  font-size: 11px;
+  margin-bottom: 0px;
+  margin-bottom: 2px;
+}
+
+.forecast-data-icon {
+  height: 28px;
 }
 /* ********************************************** */
 /* ******************* footer ******************* */
@@ -197,7 +262,7 @@ footer {
   border-radius: 10px;
   color: #333;
   padding: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .developer-details {
@@ -232,4 +297,12 @@ footer {
   .data-credit {
     font-size: 0.7em;
   }
+}
+
+/* Swal */
+.swal2-confirm {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px;
 }
