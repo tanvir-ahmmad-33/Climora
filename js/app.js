@@ -106,7 +106,19 @@ $("#weather-form").on("submit", function (e) {
       // details weather section
       $("#humidity-data").text(data.main.humidity + "%");
       $("#wind-speed-data").text((data.wind.speed * 3.6).toFixed(2) + " km/hr");
-      $("#wind-direction-data").text(data.wind.deg + "°");
+      const degree = data.wind.deg;
+      const windDegree = (degree) => {
+        if (degree >= 0 && degree <= 22.5) return "North";
+        else if (degree > 22.5 && degree <= 67.5) return "North-East";
+        else if (degree > 67.5 && degree <= 112.5) return "East";
+        else if (degree > 112.5 && degree <= 157.5) return "South-East";
+        else if (degree > 157.5 && degree <= 202.5) return "South";
+        else if (degree > 202.5 && degree <= 247.5) return "South-West";
+        else if (degree > 247.5 && degree <= 292.5) return "West";
+        else if (degree > 292.5 && degree <= 337.5) return "North-West";
+        return "North";
+      };
+      $("#wind-direction-data").text(windDegree);
       $("#visibility-data").text((data.visibility / 1000).toFixed(2) + " km");
       $("#pressure-data").text(data.main.pressure + " hPa");
       $("#cloud-coverage-data").text(data.clouds.all + "%");
@@ -237,7 +249,7 @@ function generateForecastDays() {
 generateForecastDays();
 
 // ******************************************************************************
-// *************** Function to generate dates for the next 5 days ***************
+// ************ Gnerating per day forecast after search button click ************
 // ******************************************************************************
 
 $("#forecast-form").on("submit", function (e) {
@@ -279,14 +291,13 @@ $("#forecast-form").on("submit", function (e) {
   }
 
   $("#forecat-search-box").addClass("d-none");
-  $(".forecast-boxes").css({
+  $("#forecast-boxes").css({
     "background-image": "none",
     "padding-top": "0",
   });
   $("#forecat-search-result-box").removeClass("d-none");
 
   forecastDayIdx = Number(forecastDayIdx);
-  console.log(forecastDayIdx);
 
   const today = new Date();
   const forecast = new Date(today);
@@ -304,7 +315,6 @@ $("#forecast-form").on("submit", function (e) {
   $("#forecast-date").text(forecastDate);
 
   const apiKey = "ba7455a48b9d0b5a432e6d0a752a56fc";
-  console.log(forecastDate);
 
   $.ajax({
     url: `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`,
@@ -317,8 +327,6 @@ $("#forecast-form").on("submit", function (e) {
 
         const forecastDateFromAPI = forecast.dt_txt.split(" ")[0];
         if (forecastCheck === forecastDateFromAPI) {
-          console.log(forecast);
-
           const time = new Date(forecast.dt_txt).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true });
           const feelsLike = forecast.main.feels_like.toFixed(1) + " °C";
           const condition = forecast.weather[0].description;
@@ -342,6 +350,7 @@ $("#forecast-form").on("submit", function (e) {
             return "North";
           };
 
+          $(`#forecast-place`).text(city);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-title-${idx}`).text(time);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-feels-like-${idx}`).text(feelsLike);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-codition-${idx}`).text(condition);
@@ -369,4 +378,12 @@ $("#forecast-form").on("submit", function (e) {
       }
     },
   });
+});
+
+// ******************************************************************************
+// ***************** Exit button from forecast description page *****************
+// ******************************************************************************
+
+$("#forecast-details-exit-btn").on("click", function () {
+  window.location.href = "forecast.html";
 });

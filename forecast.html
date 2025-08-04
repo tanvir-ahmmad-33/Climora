@@ -38,7 +38,7 @@
 
       <!-- forecast section start -->
       <div class="row">
-        <div class="forecast-boxes">
+        <div id="forecast-boxes">
           <!-- before search -->
           <div id="forecat-search-box">
             <div class="col-12 text-center">
@@ -60,10 +60,27 @@
           <div id="forecat-search-result-box" class="d-none">
             <!-- forecast date start -->
             <div id="focast-date-title">
-              <div class="row">
-                <div class="col-12">
-                  <h3 class="text-center" id="forecast-heading">Forecast: <span id="forecast-date"> ... </span></h3>
+              <div class="row align-items-center">
+                <!-- heading forecast page exit start -->
+                <div class="col-4 text-left">
+                  <button id="forecast-details-exit-btn" class="btn btn-sm btn-success"><i class="fa-solid fa-arrow-left fs-5 mr-2"></i>Back</button>
                 </div>
+                <!-- heading forecast page exit end -->
+
+                <!-- heading forecast date start -->
+                <div class="col-4 text-center">
+                  <!-- <img src="assets/icon/map.png" id="forecast-details-city-icon" alt="Location icon" />
+                  <span id="forecast-place">...</span> -->
+                  <span id="forecast-date">...</span>
+                </div>
+                <!-- heading forecast date end -->
+
+                <!-- heading city name start -->
+                <div class="col-4 text-right">
+                  <img src="assets/icon/map.png" id="forecast-details-city-icon" alt="Location icon" />
+                  <span id="forecast-place">...</span>
+                </div>
+                <!-- heading city name end -->
               </div>
             </div>
             <!-- forecast date end -->
