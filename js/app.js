@@ -225,13 +225,13 @@ $(".fahrenheit-btn").on("click", function () {
 });
 
 // ******************************************************************************
-// *************** Function to generate dates for the next 5 days ***************
+// *************** Function to generate dates for the next 4 days ***************
 // ******************************************************************************
 
 function generateForecastDays() {
   const today = new Date();
 
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 4; i++) {
     const forecastDate = new Date(today);
     forecastDate.setDate(today.getDate() + i);
 
