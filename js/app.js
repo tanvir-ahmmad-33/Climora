@@ -393,14 +393,24 @@ $("#forecast-details-exit-btn").on("click", function () {
 // ******************************************************************************
 
 $(document).ready(function () {
-  if (window.location.href == "http://127.0.0.1:5500/news.html" || window.location.href == "https://tanvir-ahmmad-33.github.io/Climora/news.html") {
+  const currentUrl = window.location.href;
+
+  const url1 = "http://127.0.0.1:5500/news.html";
+  const url2 = "https://tanvir-ahmmad-33.github.io/Climora/news.html";
+  const url3 = "http://tanvir-ahmmad-33.github.io/Climora/news.html";
+
+  if (currentUrl === url1 || currentUrl === url2 || currentUrl === url3) {
     let articles = [];
 
     fetchWeatherNews(articles);
 
-    // $("#news-prev-btn").on("click", function () {});
+    // $("#news-prev-btn").on("click", function () {
+    //   // Handle previous button click
+    // });
 
-    // $("#news-next-btn").on("click", function () {});
+    // $("#news-next-btn").on("click", function () {
+    //   // Handle next button click
+    // });
   }
 });
 
