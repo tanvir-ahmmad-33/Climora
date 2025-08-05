@@ -194,16 +194,23 @@ body::after {
 }
 
 .news-title {
+  font-size: 16px;
   background-color: rgba(40, 167, 69, 1);
   color: white;
   padding: 10px;
   border-radius: 5px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 .news-content {
   padding: 0px 20px 10px 20px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 15px;
   color: black;
 }
 

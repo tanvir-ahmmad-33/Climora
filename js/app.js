@@ -393,13 +393,7 @@ $("#forecast-details-exit-btn").on("click", function () {
 // ******************************************************************************
 
 $(document).ready(function () {
-  const currentUrl = window.location.href;
-
-  const url1 = "http://127.0.0.1:5500/news.html";
-  const url2 = "https://tanvir-ahmmad-33.github.io/Climora/news.html";
-  const url3 = "http://tanvir-ahmmad-33.github.io/Climora/news.html";
-
-  if (currentUrl === url1 || currentUrl === url2 || currentUrl === url3) {
+  if (window.location.pathname.endsWith("news.html")) {
     let articles = [];
 
     fetchWeatherNews(articles);
@@ -415,21 +409,14 @@ $(document).ready(function () {
 });
 
 function fetchWeatherNews(articles) {
-  const apiKey = "f9eb284ce45c4b69ad4ee7679849691f";
+  const apikey = "c1be68edbc550a63146fb67050f9495d";
   const query = "weather";
 
-  console.log("loaded ajax");
+  const url = "https://gnews.io/api/v4/search?q=" + query + "&lang=en&max=10&apikey=" + apikey;
 
   $.ajax({
-    url: "https://newsapi.org/v2/everything",
+    url: url,
     method: "GET",
-    data: {
-      q: query,
-      apiKey: apiKey,
-      language: "en",
-      pageSize: 2,
-      page: 1,
-    },
     success: function (data) {
       if (data.articles && data.articles.length > 0) {
         articles = data.articles;
@@ -455,11 +442,11 @@ function fetchWeatherNews(articles) {
 
 function displayArticle(articles) {
   for (let idx = 0; idx < articles.length && idx < 2; idx++) {
-    console.log(articles[idx]);
     const article = articles[idx];
+    console.log(article);
 
-    const imageUrl = article.urlToImage;
-    const author = article.author ? article.author : "Unknown Author";
+    const imageUrl = article.image;
+    const author = article.source.name ? article.source.name : "Unknown Source";
 
     const date = article.publishedAt ? new Date(article.publishedAt) : new Date();
     const fullDate =
@@ -473,7 +460,7 @@ function displayArticle(articles) {
 
     const articleTitle = article.title;
     const articleContent = article.content;
-    const articleUrl = article.url;
+    const articleUrl = article.source.url;
 
     console.log(articleTitle);
 
