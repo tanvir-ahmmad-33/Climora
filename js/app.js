@@ -387,3 +387,86 @@ $("#forecast-form").on("submit", function (e) {
 $("#forecast-details-exit-btn").on("click", function () {
   window.location.href = "forecast.html";
 });
+
+// ******************************************************************************
+// ******************** Fetch weather news from newsapi.org ********************
+// ******************************************************************************
+
+$(document).ready(function () {
+  if (window.location.pathname.includes("news.html")) {
+    let articles = [];
+
+    fetchWeatherNews(articles);
+
+    // $("#news-prev-btn").on("click", function () {});
+
+    // $("#news-next-btn").on("click", function () {});
+  }
+});
+
+function fetchWeatherNews(articles) {
+  const apiKey = "f9eb284ce45c4b69ad4ee7679849691f";
+  const query = "weather";
+
+  $.ajax({
+    url: "https://newsapi.org/v2/everything",
+    method: "GET",
+    data: {
+      q: query,
+      apiKey: apiKey,
+      language: "en",
+      pageSize: 2,
+      page: 1,
+    },
+    success: function (data) {
+      if (data.articles && data.articles.length > 0) {
+        articles = data.articles;
+        displayArticle(articles);
+      } else {
+        alert("No articles found.");
+      }
+    },
+    error: function (xhr, status, error) {
+      if (xhr.status === 404) {
+        alert("No news found for the given query.");
+      } else if (xhr.status === 401) {
+        alert("Invalid API key. Please check your API key.");
+      } else {
+        alert("There was an error fetching the data: " + error);
+      }
+    },
+  });
+}
+
+function displayArticle(articles) {
+  for (let idx = 0; idx < articles.length && idx < 2; idx++) {
+    console.log(articles[idx]);
+    const article = articles[idx];
+
+    const imageUrl = article.urlToImage;
+    const author = article.author ? article.author : "Unknown Author";
+
+    const date = article.publishedAt ? new Date(article.publishedAt) : new Date();
+    const fullDate =
+      date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }) +
+      ", " +
+      date.toLocaleDateString("en-GB", { weekday: "long" });
+
+    const articleTitle = article.title;
+    const articleContent = article.content;
+    const articleUrl = article.url;
+
+    console.log(articleTitle);
+
+    $(`#news-image-${idx}`).attr("src", imageUrl);
+    $(`#news-author-${idx}`).text(author);
+    $(`#news-date-${idx}`).text(fullDate);
+    $(`#news-title-${idx}`).text(articleTitle);
+    $(`#news-content-${idx}`).text(articleContent);
+    $(`#news-link-address-${idx}`).attr("href", articleUrl).text("For more details");
+  }
+}
