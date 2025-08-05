@@ -393,10 +393,10 @@ $("#forecast-details-exit-btn").on("click", function () {
 // ******************************************************************************
 
 $(document).ready(function () {
-  if (window.location.pathname.includes("news.html")) {
+  if (window.location.href == "https://tanvir-ahmmad-33.github.io/Climora/news.html") {
     let articles = [];
 
-    fetchWeatherNews(articles);
+    // fetchWeatherNews(articles);
 
     // $("#news-prev-btn").on("click", function () {});
 
