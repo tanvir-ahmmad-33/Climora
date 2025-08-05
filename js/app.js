@@ -439,6 +439,7 @@ function fetchWeatherNews(articles) {
       }
     },
     error: function (xhr, status, error) {
+      console.log("Error Details:", xhr);
       if (xhr.status === 404) {
         alert("No news found for the given query.");
       } else if (xhr.status === 401) {
