@@ -431,6 +431,8 @@ function fetchWeatherNews(articles) {
         alert("No news found for the given query.");
       } else if (xhr.status === 401) {
         alert("Invalid API key. Please check your API key.");
+      } else if (xhr.status === 400 && xhr.responseJSON && xhr.responseJSON.code === "apiKeyMissing") {
+        alert("Your API key is missing. Please check your API key.");
       } else {
         alert("There was an error fetching the data: " + error);
       }
