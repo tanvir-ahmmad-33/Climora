@@ -393,10 +393,10 @@ $("#forecast-details-exit-btn").on("click", function () {
 // ******************************************************************************
 
 $(document).ready(function () {
-  if (window.location.href == "https://tanvir-ahmmad-33.github.io/Climora/news.html") {
+  if (window.location.href == "http://127.0.0.1:5500/news.html" || window.location.href == "https://tanvir-ahmmad-33.github.io/Climora/news.html") {
     let articles = [];
 
-    // fetchWeatherNews(articles);
+    fetchWeatherNews(articles);
 
     // $("#news-prev-btn").on("click", function () {});
 
@@ -407,6 +407,8 @@ $(document).ready(function () {
 function fetchWeatherNews(articles) {
   const apiKey = "f9eb284ce45c4b69ad4ee7679849691f";
   const query = "weather";
+
+  console.log("loaded ajax");
 
   $.ajax({
     url: "https://newsapi.org/v2/everything",
