@@ -433,7 +433,7 @@ $(document).ready(function () {
   if (window.location.pathname.endsWith("news.html")) {
     let articles = [];
 
-    // fetchWeatherNews(articles);
+    fetchWeatherNews(articles);
   }
 });
 
