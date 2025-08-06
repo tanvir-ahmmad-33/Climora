@@ -98,7 +98,16 @@ $("#weather-form").on("submit", function (e) {
     url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`,
     method: "GET",
     success: function (data) {
+      console.log(data);
       // top section
+      let iconCode = data.weather[0].icon;
+
+      // Construct the icon URL
+      let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+      console.log(iconUrl);
+
+      // Set the icon URL to the image element
+      $("#live-weather-icon").attr("src", iconUrl);
       $("#city-name").text(data.name);
       $("#curent-temperature-amount").text(data.main.temp.toFixed(1));
       $("#weather-name").text(data.weather[0].description);
@@ -206,6 +215,20 @@ $(".celsius-btn").on("click", function () {
     $("#curent-temperature-amount").addClass("celsius").removeClass("fahrenheit");
     $(".fahrenheit-btn").removeClass("btn-success").addClass("border border-1 border-success");
     $(".celsius-btn").addClass("btn-success").removeClass("border border-1 border-success");
+
+    for (let idx = 0; idx < 5; idx++) {
+      const focastTemperatureText = $(`#forecast-day-${idx}`).find(`#forecast-temperature-${idx}`).text();
+      const temperatures = focastTemperatureText.match(/(\d+(\.\d+))/g);
+      let minForecastTemperature = parseFloat(temperatures[0]).toFixed(1);
+      let maxForecastTemperature = parseFloat(temperatures[1]).toFixed(1);
+
+      minForecastTemperature = (((minForecastTemperature - 32) / 9) * 5).toFixed(1);
+      maxForecastTemperature = (((maxForecastTemperature - 32) / 9) * 5).toFixed(1);
+
+      $(`#forecast-day-${idx}`)
+        .find(`#forecast-temperature-${idx}`)
+        .text(minForecastTemperature + "°C - " + maxForecastTemperature + "°C");
+    }
   }
 });
 // ******************************************************************************
@@ -221,6 +244,20 @@ $(".fahrenheit-btn").on("click", function () {
     $("#curent-temperature-amount").addClass("fahrenheit").removeClass("celsius");
     $(".fahrenheit-btn").addClass("btn-success").removeClass("border border-1 border-success");
     $(".celsius-btn").removeClass("btn-success").addClass("border border-1 border-success");
+
+    for (let idx = 0; idx < 5; idx++) {
+      const focastTemperatureText = $(`#forecast-day-${idx}`).find(`#forecast-temperature-${idx}`).text();
+      const temperatures = focastTemperatureText.match(/(\d+(\.\d+))/g);
+      let minForecastTemperature = parseFloat(temperatures[0]).toFixed(1);
+      let maxForecastTemperature = parseFloat(temperatures[1]).toFixed(1);
+
+      minForecastTemperature = ((minForecastTemperature * 9 + 160) / 5).toFixed(1);
+      maxForecastTemperature = ((maxForecastTemperature * 9 + 160) / 5).toFixed(1);
+
+      $(`#forecast-day-${idx}`)
+        .find(`#forecast-temperature-${idx}`)
+        .text(minForecastTemperature + "°F - " + maxForecastTemperature + "°F");
+    }
   }
 });
 
@@ -396,15 +433,7 @@ $(document).ready(function () {
   if (window.location.pathname.endsWith("news.html")) {
     let articles = [];
 
-    fetchWeatherNews(articles);
-
-    // $("#news-prev-btn").on("click", function () {
-    //   // Handle previous button click
-    // });
-
-    // $("#news-next-btn").on("click", function () {
-    //   // Handle next button click
-    // });
+    // fetchWeatherNews(articles);
   }
 });
 
