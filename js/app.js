@@ -431,13 +431,36 @@ $("#forecast-details-exit-btn").on("click", function () {
 
 $(document).ready(function () {
   if (window.location.pathname.endsWith("news.html")) {
+    let currentPage = 1;
     let articles = [];
 
-    fetchWeatherNews(articles);
+    fetchWeatherNews(function (fetchArticles) {
+      articles = fetchArticles;
+      displayArticle(articles, [0, 1]);
+
+      $(".forecast-news-page").on("click", function () {
+        let page = $(this).data("page");
+
+        if (page === "next") {
+          currentPage++;
+        } else if (page === "previous") {
+          currentPage--;
+        } else {
+          currentPage = parseInt(page);
+        }
+
+        if (currentPage > 5) currentPage = 5;
+        if (currentPage < 1) currentPage = 1;
+
+        let pages = [(currentPage - 1) * 2, currentPage * 2 - 1];
+
+        displayArticle(articles, pages);
+      });
+    });
   }
 });
 
-function fetchWeatherNews(articles) {
+function fetchWeatherNews(callback) {
   const apikey = "c1be68edbc550a63146fb67050f9495d";
   const query = "weather";
 
@@ -448,8 +471,7 @@ function fetchWeatherNews(articles) {
     method: "GET",
     success: function (data) {
       if (data.articles && data.articles.length > 0) {
-        articles = data.articles;
-        displayArticle(articles);
+        callback(data.articles);
       } else {
         alert("No articles found.");
       }
@@ -469,9 +491,11 @@ function fetchWeatherNews(articles) {
   });
 }
 
-function displayArticle(articles) {
-  for (let idx = 0; idx < articles.length && idx < 2; idx++) {
-    const article = articles[idx];
+function displayArticle(articles, pages) {
+  console.log(articles);
+  console.log(pages);
+  for (let i = pages[0], idx = 0; i <= pages[1]; i++, idx++) {
+    const article = articles[i];
     console.log(article);
 
     const imageUrl = article.image;
@@ -488,8 +512,9 @@ function displayArticle(articles) {
       date.toLocaleDateString("en-GB", { weekday: "long" });
 
     const articleTitle = article.title;
-    const articleContent = article.content;
-    const articleUrl = article.source.url;
+    let articleContent = article.content;
+    articleContent = articleContent.replace(/\s*\[\d+\s*chars\]$/, "");
+    const articleUrl = article.url;
 
     console.log(articleTitle);
 
