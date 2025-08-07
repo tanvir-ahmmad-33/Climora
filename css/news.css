@@ -38,7 +38,7 @@ body::after {
 @media (max-width: 768px) {
   html,
   body {
-    height: 124%;
+    height: 125%;
     overflow-x: hidden;
     max-width: 100%;
   }
@@ -264,7 +264,7 @@ body::after {
 
 @media (max-width: 768px) {
   #news-boxes {
-    height: 920px;
+    height: 935px;
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 5px;
