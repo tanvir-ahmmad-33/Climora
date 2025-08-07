@@ -18,20 +18,14 @@
     <div class="container-fluid">
       <!-- nav section -->
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-6">
           <div class="icons">
             <i class="fa-solid fa-house-chimney" id="home-icon"></i>
             <i class="fas fa-sun" id="weather-icon"></i>
             <i class="fa-solid fa-satellite" id="forecast-weather-icon"></i>
           </div>
         </div>
-        <div class="col-lg-6">
-          <form class="form-inline" id="weather-form">
-            <input class="form-control form-box" type="search" placeholder="Search for cities" aria-label="Search" name="city" />
-            <button id="search-btn" class="btn btn-outline-success form-box-btn" type="submit">Search</button>
-          </form>
-        </div>
-        <div class="col-lg-3">
+        <div class="col-6 d-flex justify-content-end">
           <div class="time-box text-center">
             <h6 id="location-time">...</h6>
           </div>
@@ -55,12 +49,12 @@
               <div class="row">
                 <!-- news box 1 start -->
                 <div class="col-12 col-lg-6">
-                  <div id="news-box-1" class="ml-5 mr-1">
+                  <div id="news-box-1" class="news-box-left">
                     <!-- news author, date, image section start -->
                     <div class="row">
                       <div class="col-5">
-                        <h6 id="news-author-0" class="news-author">...</h6>
-                        <h6 id="news-date-0" class="news-date">...</h6>
+                        <h6 id="news-author-0" class="news-author">Manchester Evening News</h6>
+                        <h6 id="news-date-0" class="news-date">6 August 2025, Wednesday.</h6>
                       </div>
                       <div class="col-7 text-right">
                         <img src="assets/image/Umbrella-light.png" alt="" id="news-image-0" class="news-image" />
@@ -71,7 +65,7 @@
                     <!-- news title section start -->
                     <div class="row">
                       <div class="col">
-                        <h5 id="news-title-0" class="news-title text-center">...</h5>
+                        <h5 id="news-title-0" class="news-title text-center">North Texas warms up Tuesday, with more sticky heat in store</h5>
                       </div>
                     </div>
                     <!-- news title section end -->
@@ -79,7 +73,7 @@
                     <!-- news content section start -->
                     <div class="row">
                       <div class="col">
-                        <p id="news-content-0" class="news-content">...</p>
+                        <p id="news-content-0" class="news-content">Met Office warns of major weekend weather split as 'warm sunshine' returns to parts of UK Britain is set for a weather divide between the north and south this weekend Heavy rain is forecast across northern parts of the UK on Thursday Image: The Met ...</p>
                       </div>
                     </div>
                     <!-- news content section end -->
@@ -99,12 +93,12 @@
 
                 <!-- news box 2 start -->
                 <div class="col-12 col-lg-6">
-                  <div id="news-box-2" class="mr-5 ml-1">
+                  <div id="news-box-2" class="news-box-right">
                     <!-- news author, date, image section start -->
                     <div class="row">
                       <div class="col-5">
-                        <h6 id="news-author-1" class="news-author">...</h6>
-                        <h6 id="news-date-1" class="news-date">...</h6>
+                        <h6 id="news-author-1" class="news-author">Manchester Evening News</h6>
+                        <h6 id="news-date-1" class="news-date">6 August 2025, Wednesday</h6>
                       </div>
                       <div class="col-7 text-right">
                         <img src="assets/image/Umbrella-light.png" alt="" id="news-image-1" class="news-image" />
@@ -115,7 +109,7 @@
                     <!-- news title section start -->
                     <div class="row">
                       <div class="col">
-                        <h5 id="news-title-1" class="news-title text-center">...</h5>
+                        <h5 id="news-title-1" class="news-title text-center">North Texas warms up Tuesday, with more sticky heat in store</h5>
                       </div>
                     </div>
                     <!-- news title section end -->
@@ -123,7 +117,7 @@
                     <!-- news content section start -->
                     <div class="row">
                       <div class="col">
-                        <p id="news-content-1" class="news-content">...</p>
+                        <p id="news-content-1" class="news-content">Met Office warns of major weekend weather split as 'warm sunshine' returns to parts of UK Britain is set for a weather divide between the north and south this weekend Heavy rain is forecast across northern parts of the UK on Thursday (Image: The Met ...</p>
                       </div>
                     </div>
                     <!-- news content section end -->
@@ -145,17 +139,21 @@
             <!-- news box end -->
 
             <!-- pagination start -->
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-end ml-1 mr-3">
-                <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="previous">Previous</a></li>
-                <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="1">1</a></li>
-                <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="2">2</a></li>
-                <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="3">3</a></li>
-                <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="4">4</a></li>
-                <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="5">5</a></li>
-                <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="next">Next</a></li>
-              </ul>
-            </nav>
+            <div class="row">
+              <div class="col-12">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center justify-content-lg-end">
+                    <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="previous">Previous</a></li>
+                    <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="1">1</a></li>
+                    <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="2">2</a></li>
+                    <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="3">3</a></li>
+                    <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="4">4</a></li>
+                    <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="5">5</a></li>
+                    <li class="page-item"><a class="page-link forecast-news-page rounded" data-page="next">Next</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
             <!-- pagination end -->
           </div>
         </div>
