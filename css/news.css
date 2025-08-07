@@ -38,7 +38,7 @@ body::after {
 @media (max-width: 768px) {
   html,
   body {
-    height: 121%;
+    height: 120%;
     overflow-x: hidden;
     max-width: 100%;
   }
