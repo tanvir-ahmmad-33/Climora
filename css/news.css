@@ -38,7 +38,7 @@ body::after {
 @media (max-width: 768px) {
   html,
   body {
-    height: 125%;
+    height: 121%;
     overflow-x: hidden;
     max-width: 100%;
   }
@@ -264,7 +264,7 @@ body::after {
 
 @media (max-width: 768px) {
   #news-boxes {
-    height: 950px;
+    height: 940px;
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 5px;
@@ -315,7 +315,7 @@ body::after {
 /* ******************* pagination ******************* */
 /* ********************************************** */
 .pagination {
-  margin-right: 40px;
+  margin-right: 35px;
   /* background-color: rgba(40, 167, 69, 1); */
 }
 
@@ -382,7 +382,7 @@ footer {
   }
 
   .developer-details {
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 5px;
   }
 
