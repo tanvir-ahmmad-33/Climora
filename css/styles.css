@@ -81,7 +81,6 @@ body {
 
 @media (max-width: 768px) {
   .home-left {
-    background-color: rgba(40, 167, 69, 1);
     border-radius: 18px;
     margin: 90px 35px 50px 35px;
     padding: 7px;
@@ -93,7 +92,7 @@ body {
   }
 
   .home-right {
-    margin-top: 60px;
+    margin-top: 10px;
   }
 
   .started-btn {
