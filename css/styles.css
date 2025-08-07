@@ -55,7 +55,7 @@ body {
 
 @media (max-width: 768px) {
   .home-left {
-    height: 50vh;
+    height: 45vh;
   }
 
   .umbrella-image {
@@ -66,7 +66,7 @@ body {
 
   .home-right {
     margin-top: 0%;
-    height: 50vh;
+    height: 55vh;
   }
 
   .home-right-logo {
@@ -90,7 +90,7 @@ body {
   }
 
   .home-right-second-title {
-    margin: 0% 0% 20% 0% !important;
+    margin: 0% 0% 30% 0% !important;
   }
 
   .started-btn {
