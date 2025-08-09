@@ -166,7 +166,7 @@ body::after {
 
   .form-box-btn {
     height: 5vh;
-    width: 11.8vh !important;
+    width: 10vh !important;
     border-radius: 0.7vw;
     margin: 1vh 0vh 0vh 0.5vh;
     background-color: white;
@@ -311,6 +311,7 @@ body::after {
   }
 
   #current-temperature-amount {
+    font-size: 42px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   }
 
@@ -536,7 +537,7 @@ footer {
   }
 
   .developer-details {
-    font-size: 13px;
+    font-size: 12px;
     margin: 1.5vh 0vw 0.5vh 0vw;
   }
 }
