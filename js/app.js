@@ -50,7 +50,8 @@ function updatetime() {
 
   const timeString = `${hours}:${minutes}:${seconds} ${format}`;
 
-  $("#location-time").text(timeString);
+  $("#location-time-1").text(timeString);
+  $("#location-time-2").text(timeString);
 }
 
 updatetime();
@@ -109,7 +110,7 @@ $("#weather-form").on("submit", function (e) {
       // Set the icon URL to the image element
       $("#live-weather-icon").attr("src", iconUrl);
       $("#city-name").text(data.name);
-      $("#curent-temperature-amount").text(data.main.temp.toFixed(1));
+      $("#current-temperature-amount").text(data.main.temp.toFixed(1));
       $("#weather-name").text(data.weather[0].description);
 
       // details weather section
@@ -147,7 +148,30 @@ $("#weather-form").on("submit", function (e) {
       });
       $("#search-location-time").text(searchDate);
 
-      $("#curent-temperature-amount").addClass("celsius").removeClass("fahrenheit");
+      $(".c-f-button-box").addClass("celsius").removeClass("fahrenheit");
+      $(".c-f-button-box").find(`.celsius-btn`).addClass("btn-success");
+      $(".c-f-button-box").find(`.fahrenheit-btn`).removeClass("btn-success");
+
+      // large screen
+      $("#city-name-1").text(data.name);
+      $("#live-weather-icon-1").attr("src", iconUrl);
+
+      $("#current-temperature-amount-1").text(data.main.temp.toFixed(1));
+      $("#weather-name-1").text(data.weather[0].description);
+
+      $("#search-location-time-1").text(searchDate);
+
+      $("#humidity-data-1").text(data.main.humidity + "%");
+      $("#wind-speed-data-1").text((data.wind.speed * 3.6).toFixed(2) + " km/hr");
+      $("#wind-direction-data-1").text(windDegree);
+
+      $("#visibility-data-1").text((data.visibility / 1000).toFixed(2) + " km");
+      $("#pressure-data-1").text(data.main.pressure + " hPa");
+      $("#cloud-coverage-data-1").text(data.clouds.all + "%");
+
+      $("#feels-like-temperature-1").text(data.main.feels_like + "°C");
+      $("#sunrise-time-1").text(sunriseTime);
+      $("#sunset-time-1").text(sunsetTime);
     },
     error: function () {
       alert("City not found or there was an error fetching the data.");
@@ -206,58 +230,58 @@ $("#weather-form").on("submit", function (e) {
 // ******************************************************************************
 
 $(".celsius-btn").on("click", function () {
-  let fahrenheitTemperature = $("#curent-temperature-amount").text();
+  let fahrenheitTemperature = $("#current-temperature-amount").text();
   let celsiusTemperature = (((fahrenheitTemperature - 32) / 9) * 5).toFixed(1);
 
-  if ($("#curent-temperature-amount").hasClass("fahrenheit")) {
-    $("#curent-temperature-amount").text(celsiusTemperature);
+  if ($(".c-f-button-box").hasClass("fahrenheit")) {
+    $("#current-temperature-amount").text(celsiusTemperature);
     $(".temperature-standart").text("°C");
-    $("#curent-temperature-amount").addClass("celsius").removeClass("fahrenheit");
-    $(".fahrenheit-btn").removeClass("btn-success").addClass("border border-1 border-success");
-    $(".celsius-btn").addClass("btn-success").removeClass("border border-1 border-success");
+    $(".c-f-button-box").addClass("celsius").removeClass("fahrenheit");
+    $(".fahrenheit-btn").removeClass("btn-success");
+    $(".celsius-btn").addClass("btn-success");
 
-    for (let idx = 0; idx < 5; idx++) {
-      const focastTemperatureText = $(`#forecast-day-${idx}`).find(`#forecast-temperature-${idx}`).text();
-      const temperatures = focastTemperatureText.match(/(\d+(\.\d+))/g);
-      let minForecastTemperature = parseFloat(temperatures[0]).toFixed(1);
-      let maxForecastTemperature = parseFloat(temperatures[1]).toFixed(1);
+    // for (let idx = 0; idx < 5; idx++) {
+    //   const focastTemperatureText = $(`#forecast-day-${idx}`).find(`#forecast-temperature-${idx}`).text();
+    //   const temperatures = focastTemperatureText.match(/(\d+(\.\d+))/g);
+    //   let minForecastTemperature = parseFloat(temperatures[0]).toFixed(1);
+    //   let maxForecastTemperature = parseFloat(temperatures[1]).toFixed(1);
 
-      minForecastTemperature = (((minForecastTemperature - 32) / 9) * 5).toFixed(1);
-      maxForecastTemperature = (((maxForecastTemperature - 32) / 9) * 5).toFixed(1);
+    //   minForecastTemperature = (((minForecastTemperature - 32) / 9) * 5).toFixed(1);
+    //   maxForecastTemperature = (((maxForecastTemperature - 32) / 9) * 5).toFixed(1);
 
-      $(`#forecast-day-${idx}`)
-        .find(`#forecast-temperature-${idx}`)
-        .text(minForecastTemperature + "°C - " + maxForecastTemperature + "°C");
-    }
+    //   $(`#forecast-day-${idx}`)
+    //     .find(`#forecast-temperature-${idx}`)
+    //     .text(minForecastTemperature + "°C - " + maxForecastTemperature + "°C");
+    // }
   }
 });
 // ******************************************************************************
 // *************** Converts Celsius to Fahrenheit on button click ***************
 // ******************************************************************************
 $(".fahrenheit-btn").on("click", function () {
-  let celsiusTemperature = $("#curent-temperature-amount").text();
+  let celsiusTemperature = $("#current-temperature-amount").text();
   let fahrenheitTemperature = ((celsiusTemperature * 9) / 5 + 32).toFixed(1);
 
-  if ($("#curent-temperature-amount").hasClass("celsius")) {
-    $("#curent-temperature-amount").text(fahrenheitTemperature);
+  if ($(".c-f-button-box").hasClass("celsius")) {
+    $("#current-temperature-amount").text(fahrenheitTemperature);
     $(".temperature-standart").text("°F");
-    $("#curent-temperature-amount").addClass("fahrenheit").removeClass("celsius");
-    $(".fahrenheit-btn").addClass("btn-success").removeClass("border border-1 border-success");
-    $(".celsius-btn").removeClass("btn-success").addClass("border border-1 border-success");
+    $(".c-f-button-box").addClass("fahrenheit").removeClass("celsius");
+    $(".fahrenheit-btn").addClass("btn-success");
+    $(".celsius-btn").removeClass("btn-success");
 
-    for (let idx = 0; idx < 5; idx++) {
-      const focastTemperatureText = $(`#forecast-day-${idx}`).find(`#forecast-temperature-${idx}`).text();
-      const temperatures = focastTemperatureText.match(/(\d+(\.\d+))/g);
-      let minForecastTemperature = parseFloat(temperatures[0]).toFixed(1);
-      let maxForecastTemperature = parseFloat(temperatures[1]).toFixed(1);
+    // for (let idx = 0; idx < 5; idx++) {
+    //   const focastTemperatureText = $(`#forecast-day-${idx}`).find(`#forecast-temperature-${idx}`).text();
+    //   const temperatures = focastTemperatureText.match(/(\d+(\.\d+))/g);
+    //   let minForecastTemperature = parseFloat(temperatures[0]).toFixed(1);
+    //   let maxForecastTemperature = parseFloat(temperatures[1]).toFixed(1);
 
-      minForecastTemperature = ((minForecastTemperature * 9 + 160) / 5).toFixed(1);
-      maxForecastTemperature = ((maxForecastTemperature * 9 + 160) / 5).toFixed(1);
+    //   minForecastTemperature = ((minForecastTemperature * 9 + 160) / 5).toFixed(1);
+    //   maxForecastTemperature = ((maxForecastTemperature * 9 + 160) / 5).toFixed(1);
 
-      $(`#forecast-day-${idx}`)
-        .find(`#forecast-temperature-${idx}`)
-        .text(minForecastTemperature + "°F - " + maxForecastTemperature + "°F");
-    }
+    //   $(`#forecast-day-${idx}`)
+    //     .find(`#forecast-temperature-${idx}`)
+    //     .text(minForecastTemperature + "°F - " + maxForecastTemperature + "°F");
+    // }
   }
 });
 

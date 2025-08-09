@@ -18,215 +18,419 @@
     <div class="container-fluid">
       <!-- nav section -->
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-12 col-lg-3 d-flex justify-content-between justify-content-lg-center align-items-lg-center">
           <div class="icons">
             <i class="fa-solid fa-house-chimney" id="home-icon"></i>
             <i class="fa-solid fa-satellite" id="forecast-weather-icon"></i>
             <i class="fa-solid fa-newspaper" id="news-icon"></i>
           </div>
+          <div class="d-flex align-items-right d-lg-none">
+            <div class="time-box d-flex justify-content-center align-items-center">
+              <h6 id="location-time-1">...</h6>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-6">
-          <form class="form-inline" id="weather-form">
+        <div class="col-12 col-lg-6">
+          <form class="form-inline d-flex justify-content-center" id="weather-form">
             <input class="form-control form-box" type="search" placeholder="Search for cities" aria-label="Search" name="city" />
             <button id="search-btn" class="btn btn-outline-success form-box-btn" type="submit">Search</button>
           </form>
         </div>
-        <div class="col-lg-3">
-          <div class="time-box text-center">
-            <h6 id="location-time"> ... </h6>
+        <div class="col-lg-3 d-none d-lg-flex justify-content-center align-items-center" id="big-screeen-clock">
+          <div class="time-box d-flex justify-content-center align-items-center">
+            <h6 id="location-time-2">...</h6>
           </div>
         </div>
       </div>
 
       <!-- weather section -->
       <div class="row">
-        <!-- today's section -->
-        <div class="col-12 col-lg-7 pr-0 mb-0 main-weather">
-          <div class="row">
+        <!-- today's section start -->
+        <div class="col-12 col-lg-7">
+          <!-- mobile screen top secreen start -->
+          <div class="row d-lg-none">
             <div class="col-12">
               <div class="temperature-box">
                 <div class="row">
-                    <div class="col-12">
-                        <p id="location-box">
-                          <div class="row">
-                            <div class="col-6 text-center">
-                              <i class="fa-solid fa-location-dot location-icon"></i>
-                              <span id="city-name"> ... </span>
-                            </div>
-                            <div class="col-6 text-center">
-                              <i class="fa-solid fa-clock time-icon"></i>
-                              <span id="search-location-time"> ... </span>
-                            </div>
-                          </div>
-                        </p>
+                  <!-- location, weather-icon box start -->
+                  <div class="col-6">
+                    <!-- location place with icon -->
+                    <div class="d-flex justify-content-center">
+                      <i class="fa-solid fa-location-dot text-success location-icon"></i>
+                      <span id="city-name"> ... </span>
                     </div>
-                </div>
-                <div class="row">
-                  <div class="col-4">
-                    <div class="d-flex justify-content-end">
-                      <img src="" alt="weather icon image" class="temperature-box-emoji bg-success" id="live-weather-icon" />
+
+                    <!-- live wether-icon -->
+                    <div class="d-flex justify-content-center">
+                      <img src="" alt="weather icon image" id="live-weather-icon" />
+                    </div>
+
+                    <!-- live weather name -->
+                    <div class="d-flex justify-content-center">
+                      <h6 class="d-flex justify-content-center" id="weather-name">...</h6>
                     </div>
                   </div>
-                  <div class="col-4">
-                    <p class="temperature">
-                      <h1 class="temperature-amount">
-                        <span id="curent-temperature-amount" class="celsius">0</span>
-                        <span class="temperature-standart" id="temperature-standart">°C</span> 
-                      </h1>
-                      <h6 class="weather-name" id="weather-name">...</h6>
-                    </p>
-                  </div>
-                  <div class="col-4">
+                  <!-- location, weather-icon box end -->
+
+                  <!-- location-date, weather-temp box & celsisus & fareheit button start -->
+                  <div class="col-6">
+                    <!-- location time with icon -->
+                    <div class="d-flex justify-content-center">
+                      <i class="fa-solid fa-clock text-success time-icon"></i>
+                      <span id="search-location-time"> ... </span>
+                    </div>
+
+                    <!-- live wether-icon -->
                     <div>
-                      <button class="btn btn-success celsius-btn">°C</button> <br />
-                      <button class="btn fahrenheit-btn border border-1 border-success">°F</button>
+                      <h1 class="full-temperature text-center">
+                        <span id="current-temperature-amount" class="celsius">0</span>
+                        <span class="temperature-standart" id="temperature-standart">°C</span>
+                      </h1>
+                    </div>
+
+                    <!-- celsius & fareheit button -->
+                    <div class="d-flex justify-content-center c-f-button-box">
+                      <button class="btn celsius-btn">°C</button>
+                      <button class="btn fahrenheit-btn">°F</button>
                     </div>
                   </div>
+                  <!-- location-date, weather-temp box & celsisus & fareheit button end -->
                 </div>
               </div>
             </div>
+          </div>
+          <!-- mobile screen top secreen end -->
 
-            <!-- more details about weather -->
+          <!-- large screen top secreen start -->
+          <div class="row d-none d-lg-block">
+            <div class="col-12">
+              <div class="temperature-box">
+                <div class="row">
+                  <!-- live search location & codition image start -->
+                  <div class="col-4">
+                    <!-- location place with icon -->
+                    <div class="d-flex justify-content-center">
+                      <i class="fa-solid fa-location-dot text-success location-icon"></i>
+                      <span id="city-name-1"> ... </span>
+                    </div>
+
+                    <!-- live wether-icon -->
+                    <div class="d-flex justify-content-center">
+                      <img src="" alt="weather icon image" id="live-weather-icon-1" />
+                    </div>
+                  </div>
+                  <!-- live search location & codition image end -->
+
+                  <!-- temperature & feels like temperature start -->
+                  <div class="col-4">
+                    <!-- live wether-icon -->
+                    <div class="d-flex justify-content-center">
+                      <h1 class="full-temperature text-center">
+                        <span id="current-temperature-amount-1" class="celsius">0</span>
+                        <span class="temperature-standart" id="temperature-standart">°C</span>
+                      </h1>
+                    </div>
+                    <h6 class="d-flex justify-content-center"><span id="weather-name-1">...</span></h6>
+                  </div>
+                  <!-- temperature & feels like temperature end -->
+
+                  <!-- live search location & celsius & fareheit buttons start -->
+                  <div class="col-4">
+                    <!-- location time with icon -->
+                    <div class="d-flex justify-content-center">
+                      <i class="fa-solid fa-clock text-success time-icon"></i>
+                      <span id="search-location-time-1"> ... </span>
+                    </div>
+
+                    <!-- celsius & fareheit button -->
+                    <div class="d-flex flex-column align-items-center c-f-button-box">
+                      <button class="btn celsius-btn">°C</button>
+                      <button class="btn fahrenheit-btn">°F</button>
+                    </div>
+                  </div>
+                  <!-- live search location & celsius & fareheit buttons end -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- large screen top secreen end -->
+
+          <!-- mobile screen more details about weather start -->
+          <div class="row d-lg-none">
+            <div class="col-12">
+              <!-- humidity & visibity of today's weather start -->
+              <div class="row">
+                <!-- humidity section of today's weather start -->
+                <div class="col-6 p-0">
+                  <div class="single-today-weather-left-box">
+                    <div class="row">
+                      <div class="col-8">
+                        <h6 class="weather-data-name">Humidity</h6>
+                        <h6 class="weather-data-amount" id="humidity-data">87%</h6>
+                      </div>
+                      <div class="col-4">
+                        <img src="assets/icon/humidity.png" alt="Humidity image" class="weather-data-icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- humidity section of today's weather end -->
+
+                <!-- visibity section of today's weather start -->
+                <div class="col-6 p-0">
+                  <div class="single-today-weather-right-box">
+                    <div class="row">
+                      <div class="col-8">
+                        <h6 class="weather-data-name">Visibility</h6>
+                        <h6 class="weather-data-amount" id="visibility-data">10.00 km</h6>
+                      </div>
+                      <div class="col-4">
+                        <img src="assets/icon/visibility.png" alt="Visibility image" class="weather-data-icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- visibity section of today's weather end -->
+              </div>
+              <!-- humidity & visibity of today's weather end -->
+
+              <!-- wind speed & direction of today's weather start -->
+              <div class="row">
+                <!-- wind speed section of today's weather start -->
+                <div class="col-6 p-0">
+                  <div class="single-today-weather-left-box">
+                    <div class="row">
+                      <div class="col-8">
+                        <h6 class="weather-data-name">Wind Speed</h6>
+                        <h6 class="weather-data-amount" id="wind-speed-data">13.3 km/hr</h6>
+                      </div>
+                      <div class="col-4">
+                        <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="weather-data-icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- wind speed section of today's weather end -->
+
+                <!-- wind direction section of today's weather start -->
+                <div class="col-6 p-0">
+                  <div class="single-today-weather-right-box">
+                    <div class="row">
+                      <div class="col-8">
+                        <h6 class="weather-data-name">Wind Direction</h6>
+                        <h6 class="weather-data-amount" id="wind-direction-data">North</h6>
+                      </div>
+                      <div class="col-4">
+                        <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="weather-data-icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- wind direction section of today's weather end -->
+              </div>
+              <!-- wind speed & direction of today's weather end -->
+
+              <!-- air pressure & cloud coverage of today's weather start -->
+              <div class="row">
+                <!-- air pressure section of today's weather start -->
+                <div class="col-6 p-0">
+                  <div class="single-today-weather-left-box">
+                    <div class="row">
+                      <div class="col-8">
+                        <h6 class="weather-data-name">Air Pressure</h6>
+                        <h6 class="weather-data-amount" id="pressure-data">1000 hPa</h6>
+                      </div>
+                      <div class="col-4">
+                        <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="weather-data-icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- air pressure section of today's weather end -->
+
+                <!-- cloud coverage section of today's weather start -->
+                <div class="col-6 p-0">
+                  <div class="single-today-weather-right-box">
+                    <div class="row">
+                      <div class="col-8">
+                        <h6 class="weather-data-name">Cloud coverage</h6>
+                        <h6 class="weather-data-amount" id="cloud-coverage-data">60%</h6>
+                      </div>
+                      <div class="col-4">
+                        <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="weather-data-icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- cloud coverage section of today's weather end -->
+              </div>
+              <!-- air pressure & cloud coverage of today's weather end -->
+            </div>
+          </div>
+          <!-- mobile screen more details about weather end -->
+
+          <!-- large screen more details about weather start -->
+          <div class="row d-none d-lg-block">
             <div class="col-12">
               <div id="weather-details-boxes">
-
-                <!-- present day weather details(humidity, wind speed, wind direction) start -->
+                <!-- humidity , wind speed & direction of today's weather start -->
                 <div class="row">
-
-                  <!-- present day humidity -->
-                    <div class="col-4 p-1">
-                        <div class="weather-details-box">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h6 class="weather-data-name">Humidity</h6>
-                                    <p class="weather-data-amount" id="humidity-data">...</p>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <img src="assets/icon/humidity.png" alt="Humidity image" class="weather-data-icon">
-                                </div>
-                            </div>
+                  <!-- humidity section of today's weather start -->
+                  <div class="col-4 p-0">
+                    <div class="single-today-weather-box">
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 class="weather-data-name">Humidity</h6>
+                          <h6 class="weather-data-amount" id="humidity-data-1">87%</h6>
                         </div>
-                    </div>
-
-                    <!-- present day wind speed -->
-                    <div class="col-4 p-1">
-                        <div class="weather-details-box">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h6 class="weather-data-name">Wind Speed</h6>
-                                    <p class="weather-data-amount" id="wind-speed-data">...</p>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="weather-data-icon">
-                                </div>
-                            </div>
+                        <div class="col-4">
+                          <img src="assets/icon/humidity.png" alt="Humidity image" class="weather-data-icon" />
                         </div>
+                      </div>
                     </div>
+                  </div>
+                  <!-- humidity section of today's weather end -->
 
-                    <!-- present day wind direction -->
-                    <div class="col-4 p-1">
-                        <div class="weather-details-box">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h6 class="weather-data-name">Wind Direction</h6>
-                                    <p class="weather-data-amount" id="wind-direction-data">...</p>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="weather-data-icon">
-                                </div>
-                            </div>
+                  <!-- wind speed section of today's weather end -->
+                  <div class="col-4 p-0">
+                    <div class="single-today-weather-box">
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 class="weather-data-name">Wind Speed</h6>
+                          <h6 class="weather-data-amount" id="wind-speed-data-1">13.3 km/hr</h6>
                         </div>
+                        <div class="col-4">
+                          <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="weather-data-icon" />
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <!-- wind speed section of today's weather end -->
+
+                  <!-- wind direction section of today's weather start -->
+                  <div class="col-4 p-0">
+                    <div class="single-today-weather-box">
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 class="weather-data-name">Wind Direction</h6>
+                          <h6 class="weather-data-amount" id="wind-direction-data-1">North</h6>
+                        </div>
+                        <div class="col-4">
+                          <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="weather-data-icon" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- wind direction section of today's weather end -->
                 </div>
-                <!-- present day weather details(humidity, wind speed, wind direction) end -->
+                <!-- humidity , wind speed & direction of today's weather end -->
 
-                <!-- present day weather details(visibility, air pressure, cloud coverage) start -->
+                <!-- visibility , air pressure & cloud coverage of today's weather start -->
                 <div class="row">
-                    <!-- present day visibility -->
-                    <div class="col-4 p-1">
-                        <div class="weather-details-box">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h6 class="weather-data-name">Visibility</h6>
-                                    <p class="weather-data-amount" id="visibility-data">...</p>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <img src="assets/icon/visibility.png" alt="Visibility image" class="weather-data-icon">
-                                </div>
-                            </div>
+                  <!-- visibility section of today's weather start -->
+                  <div class="col-4 p-0">
+                    <div class="single-today-weather-box">
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 class="weather-data-name">Visibility</h6>
+                          <h6 class="weather-data-amount" id="visibility-data-1">10.00 km</h6>
                         </div>
+                        <div class="col-4">
+                          <img src="assets/icon/visibility.png" alt="Visibility image" class="weather-data-icon" />
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <!-- visibility section of today's weather end -->
 
-                    <!-- present day air pressure -->
-                    <div class="col-4 p-1">
-                        <div class="weather-details-box">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h6 class="weather-data-name">Air Pressure</h6>
-                                    <p class="weather-data-amount" id="pressure-data">...</p>
-                                </div>
-                                <div class="col-4 text-center">
-                                   <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="weather-data-icon">
-                                </div>
-                            </div>
+                  <!-- air pressure section of today's weather end -->
+                  <div class="col-4 p-0">
+                    <div class="single-today-weather-box">
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 class="weather-data-name">Air Pressure</h6>
+                          <h6 class="weather-data-amount" id="pressure-data-1">1000 hPa</h6>
                         </div>
+                        <div class="col-4">
+                          <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="weather-data-icon" />
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <!-- air pressure section of today's weather end -->
 
-                    <!-- present day cloud coverage -->
-                    <div class="col-4 p-1">
-                        <div class="weather-details-box">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h6 class="weather-data-name">Cloud Coverage</h6>
-                                    <p class="weather-data-amount" id="cloud-coverage-data">...</p>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="weather-data-icon">
-                                </div>
-                            </div>
+                  <!--  cloud coverage section of today's weather start -->
+                  <div class="col-4 p-0">
+                    <div class="single-today-weather-box">
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 class="weather-data-name">Cloud coverage</h6>
+                          <h6 class="weather-data-amount" id="cloud-coverage-data">60%</h6>
                         </div>
+                        <div class="col-4">
+                          <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="weather-data-icon" />
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <!--  cloud coverage section of today's weather end -->
                 </div>
-                <!-- present day weather details(visibility, air pressure, cloud coverage) end -->
+                <!-- visibility , air pressure & cloud coverage of today's weather end -->
               </div>
             </div>
+          </div>
+          <!-- large screen more details about weather end -->
 
-            <!-- sunrise & senset section starts -->
-            <div class="col-12">
-              <div class="more-specific-weather-boxes">
+          <div class="row">
+            <div class="col-12 p-0">
+              <div id="more-specific-weather-boxes">
                 <div class="row">
-                  <!-- feels like section -->
-                   <div class="col-4 more-specific-weather-box">
-                    <div class="text-center">
-                      <img src="assets/icon/hot.png" class="more-specific-weather-box-icon" alt="Feels like image">
+                  <!-- feels like section of today's weather start -->
+                  <div class="col-4 p-0">
+                    <div class="more-specific-weather-box">
+                      <h6 class="d-lg-none text-center more-specific-weather-box-element-data-mobile-title">Feels</h6>
+                      <div class="text-center">
+                        <img src="assets/icon/hot.png" class="more-specific-weather-box-icon" alt="Feels like image" />
+                      </div>
+                      <p class="text-center more-specific-weather-box-element-data d-none d-lg-block">Feels: <span id="feels-like-temperature-1"> ... </span></p>
+                      <h6 class="d-lg-none text-center more-specific-weather-box-element-data-mobile-amount" id="feels-like-temperature">...</h6>
                     </div>
-                    <p class="text-center more-specific-weather-box-element-data">Feels Like: <span id="feels-like-temperature"> ... </span></p>
                   </div>
+                  <!-- feels like section of today's weather end -->
 
-                  <!-- sunrise section -->
-                  <div class="col-4 more-specific-weather-box">
-                    <div class="text-center">
-                      <img src="assets/icon/sunrise.png" class="more-specific-weather-box-icon" alt="Sunrise image">
+                  <!-- sunrise section of today's weather start -->
+                  <div class="col-4 p-0">
+                    <div class="more-specific-weather-box">
+                      <h6 class="d-lg-none text-center more-specific-weather-box-element-data-mobile-title">Sunrise</h6>
+                      <div class="text-center">
+                        <img src="assets/icon/sunrise.png" class="more-specific-weather-box-icon" alt="Sunrise image" />
+                      </div>
+                      <p class="text-center more-specific-weather-box-element-data d-none d-lg-block">Sunrise: <span id="sunrise-time-1"> ... </span></p>
+                      <h6 class="d-lg-none text-center more-specific-weather-box-element-data-mobile-amount" id="sunrise-time">...</h6>
                     </div>
-                    <p class="text-center more-specific-weather-box-element-data">Sunrise: <span id="sunrise-time"> ... </span></p>
                   </div>
+                  <!-- sunrise section of today's weather end -->
 
-                  <!-- senset section -->
-                  <div class="col-4 more-specific-weather-box">
-                    <div class="text-center">
-                      <img src="assets/icon/sunset.png" class="more-specific-weather-box-icon" alt="Sunset image">
+                  <!-- sunset section of today's weather start -->
+                  <div class="col-4 p-0">
+                    <div class="more-specific-weather-box">
+                      <h6 class="d-lg-none text-center more-specific-weather-box-element-data-mobile-title">Sunset</h6>
+                      <div class="text-center">
+                        <img src="assets/icon/sunset.png" class="more-specific-weather-box-icon" alt="Sunset image" />
+                      </div>
+                      <p class="text-center more-specific-weather-box-element-data d-none d-lg-block">Sunset: <span id="sunset-time-1"> ... </span></p>
+
+                      <h6 class="d-lg-none text-center more-specific-weather-box-element-data-mobile-amount" id="sunset-time">...</h6>
                     </div>
-                    <p class="text-center more-specific-weather-box-element-data">Sunset: <span id="sunset-time"> ... </span></p>
                   </div>
-
+                  <!-- sunset section of today's weather end -->
                 </div>
               </div>
             </div>
-             <!-- sunrise & senset section -->
-
-
           </div>
         </div>
+
+        <!-- more details about weather -->
 
         <!-- forecast section -->
         <div class="col-12 col-lg-5">
@@ -238,36 +442,29 @@
                   <h3 id="forecast-title">5-Day Forecast</h3>
                 </div>
 
-                <div class="forecast-box p-1 mb-1" id="forecast-day-0">
-                  <!-- forecast weather (date & time) start -->
+                <div class="forecast-box" id="forecast-day-0">
+                  <!-- forecast weather (date, time & feels like) start -->
                   <div class="row">
-                    <div class="col-6 pt-2 pb-2">
-                      <h6 class="forecast-weather-date" id="forecast-weather-date-0"> ... </h6>
-                    </div>
-                    <div class="col-6 text-right pr-5">
-                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-0"> ... </h6>
-                    </div>
-                  </div>
-                  <!-- forecast weather (date & time) end-->
-
-                  <!-- forecast weather feels like start-->
-                  <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
+                      <h6 class="forecast-weather-date" id="forecast-weather-date-0">...</h6>
                       <h6 class="forecast-weather-feels-like">Feels like: <span id="forecast-weather-feels-like-0"></span></h6>
                     </div>
+                    <div class="col-6 text-right">
+                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-0">...</h6>
+                    </div>
                   </div>
-                  <!-- forecast weather feels like end-->
+                  <!-- forecast weather (date, time & feels like) end-->
 
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) start -->
-                  <div class="row ml-0 mr-3 mb-0">
+                  <div class="row">
                     <!-- humidity -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-droplet forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-humidity-0"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-humidity-0">...</h6>
                         </div>
                       </div>
                     </div>
@@ -275,11 +472,11 @@
                     <!-- wind -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-wind forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-wind-0"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-wind-0">...</h6>
                         </div>
                       </div>
                     </div>
@@ -287,23 +484,23 @@
                     <!-- cloud coverage -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-cloud-0"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-cloud-0">...</h6>
                         </div>
                       </div>
                     </div>
 
                     <!-- rain -->
-                     <div class="col-3 forecast-weather-single-box">
+                    <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud-rain forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-rain-0"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-rain-0">...</h6>
                         </div>
                       </div>
                     </div>
@@ -311,36 +508,29 @@
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) end -->
                 </div>
 
-                <div class="forecast-box p-1 mb-1" id="forecast-day-1">
-                  <!-- forecast weather (date & time) start -->
+                <div class="forecast-box" id="forecast-day-1">
+                  <!-- forecast weather (date, time & feels like) start -->
                   <div class="row">
-                    <div class="col-6 pt-2 pb-2">
-                      <h6 class="forecast-weather-date" id="forecast-weather-date-1"> ... </h6>
-                    </div>
-                    <div class="col-6 text-right pr-5">
-                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-1"> ... </h6>
-                    </div>
-                  </div>
-                  <!-- forecast weather (date & time) end-->
-
-                  <!-- forecast weather feels like start-->
-                  <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
+                      <h6 class="forecast-weather-date" id="forecast-weather-date-1">...</h6>
                       <h6 class="forecast-weather-feels-like">Feels like: <span id="forecast-weather-feels-like-1"></span></h6>
                     </div>
+                    <div class="col-6 text-right">
+                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-1">...</h6>
+                    </div>
                   </div>
-                  <!-- forecast weather feels like end-->
+                  <!-- forecast weather (date, time & feels like) end-->
 
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) start -->
-                  <div class="row ml-0 mr-3 mb-0">
+                  <div class="row">
                     <!-- humidity -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-droplet forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-humidity-1"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-humidity-1">...</h6>
                         </div>
                       </div>
                     </div>
@@ -348,11 +538,11 @@
                     <!-- wind -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-wind forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-wind-1"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-wind-1">...</h6>
                         </div>
                       </div>
                     </div>
@@ -360,23 +550,23 @@
                     <!-- cloud coverage -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-cloud-1"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-cloud-1">...</h6>
                         </div>
                       </div>
                     </div>
 
                     <!-- rain -->
-                     <div class="col-3 forecast-weather-single-box">
+                    <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud-rain forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-rain-1"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-rain-1">...</h6>
                         </div>
                       </div>
                     </div>
@@ -384,36 +574,29 @@
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) end -->
                 </div>
 
-                <div class="forecast-box p-1 mb-1" id="forecast-day-2">
-                  <!-- forecast weather (date & time) start -->
+                <div class="forecast-box" id="forecast-day-2">
+                  <!-- forecast weather (date, time & feels like) start -->
                   <div class="row">
-                    <div class="col-6 pt-2 pb-2">
-                      <h6 class="forecast-weather-date" id="forecast-weather-date-2"> ... </h6>
-                    </div>
-                    <div class="col-6 text-right pr-5">
-                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-2"> ... </h6>
-                    </div>
-                  </div>
-                  <!-- forecast weather (date & time) end-->
-
-                  <!-- forecast weather feels like start-->
-                  <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
+                      <h6 class="forecast-weather-date" id="forecast-weather-date-2">...</h6>
                       <h6 class="forecast-weather-feels-like">Feels like: <span id="forecast-weather-feels-like-2"></span></h6>
                     </div>
+                    <div class="col-6 text-right">
+                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-2">...</h6>
+                    </div>
                   </div>
-                  <!-- forecast weather feels like end-->
+                  <!-- forecast weather (date, time & feels like) end-->
 
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) start -->
-                  <div class="row ml-0 mr-3 mb-0">
+                  <div class="row">
                     <!-- humidity -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-droplet forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-humidity-2"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-humidity-2">...</h6>
                         </div>
                       </div>
                     </div>
@@ -421,11 +604,11 @@
                     <!-- wind -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-wind forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-wind-2"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-wind-2">...</h6>
                         </div>
                       </div>
                     </div>
@@ -433,61 +616,53 @@
                     <!-- cloud coverage -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-cloud-2"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-cloud-2">...</h6>
                         </div>
                       </div>
                     </div>
 
                     <!-- rain -->
-                     <div class="col-3 forecast-weather-single-box">
+                    <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud-rain forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-rain-2"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-rain-2">...</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) end -->
-
                 </div>
 
-                <div class="forecast-box p-1 mb-1" id="forecast-day-3">
-                  <!-- forecast weather (date & time) start -->
+                <div class="forecast-box" id="forecast-day-3">
+                  <!-- forecast weather (date, time & feels like) start -->
                   <div class="row">
-                    <div class="col-6 pt-2 pb-2">
-                      <h6 class="forecast-weather-date" id="forecast-weather-date-3"> ... </h6>
-                    </div>
-                    <div class="col-6 text-right pr-5">
-                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-3"> ... </h6>
-                    </div>
-                  </div>
-                  <!-- forecast weather (date & time) end-->
-
-                  <!-- forecast weather feels like start-->
-                  <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
+                      <h6 class="forecast-weather-date" id="forecast-weather-date-3">...</h6>
                       <h6 class="forecast-weather-feels-like">Feels like: <span id="forecast-weather-feels-like-3"></span></h6>
                     </div>
+                    <div class="col-6 text-right">
+                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-3">...</h6>
+                    </div>
                   </div>
-                  <!-- forecast weather feels like end-->
+                  <!-- forecast weather (date, time & feels like) end-->
 
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) start -->
-                  <div class="row ml-0 mr-3 mb-0">
+                  <div class="row">
                     <!-- humidity -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-droplet forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-humidity-3"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-humidity-3">...</h6>
                         </div>
                       </div>
                     </div>
@@ -495,11 +670,11 @@
                     <!-- wind -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-wind forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-wind-3"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-wind-3">...</h6>
                         </div>
                       </div>
                     </div>
@@ -507,60 +682,52 @@
                     <!-- cloud coverage -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-cloud-3"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-cloud-3">...</h6>
                         </div>
                       </div>
                     </div>
 
                     <!-- rain -->
-                     <div class="col-3 forecast-weather-single-box">
+                    <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud-rain forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-rain-3"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-rain-3">...</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) end -->
                 </div>
-
-                <div class="forecast-box p-1 mb-1" id="forecast-day-4">
-                  <!-- forecast weather (date & time) start -->
+                <div class="forecast-box" id="forecast-day-4">
+                  <!-- forecast weather (date, time & feels like) start -->
                   <div class="row">
-                    <div class="col-6 pt-2 pb-2">
-                      <h6 class="forecast-weather-date" id="forecast-weather-date-4"> ... </h6>
-                    </div>
-                    <div class="col-6 text-right pr-5">
-                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-4"> ... </h6>
-                    </div>
-                  </div>
-                  <!-- forecast weather (date & time) end-->
-
-                  <!-- forecast weather feels like start-->
-                  <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
+                      <h6 class="forecast-weather-date" id="forecast-weather-date-4">...</h6>
                       <h6 class="forecast-weather-feels-like">Feels like: <span id="forecast-weather-feels-like-4"></span></h6>
                     </div>
+                    <div class="col-6 text-right">
+                      <h6 class="btn btn-success btn-xs" id="forecast-temperature-4">...</h6>
+                    </div>
                   </div>
-                  <!-- forecast weather feels like end-->
+                  <!-- forecast weather (date, time & feels like) end-->
 
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) start -->
-                  <div class="row ml-0 mr-3 mb-0">
+                  <div class="row">
                     <!-- humidity -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-droplet forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-humidity-4"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-humidity-4">...</h6>
                         </div>
                       </div>
                     </div>
@@ -568,11 +735,11 @@
                     <!-- wind -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-wind forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-wind-4"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-wind-4">...</h6>
                         </div>
                       </div>
                     </div>
@@ -580,30 +747,29 @@
                     <!-- cloud coverage -->
                     <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-cloud-4"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-cloud-4">...</h6>
                         </div>
                       </div>
                     </div>
 
                     <!-- rain -->
-                     <div class="col-3 forecast-weather-single-box">
+                    <div class="col-3 forecast-weather-single-box">
                       <div class="row">
-                        <div class="col-6 pr-2 text-right"> 
+                        <div class="col-4 p-0 text-right">
                           <i class="fa-solid fa-cloud-rain forecast-weather-icon"></i>
                         </div>
-                        <div class="col-6 p-0 text-start">
-                            <span class="forecast-weather-element-amount" id="forecast-rain-4"> ... </span>
+                        <div class="col-8 p-0">
+                          <h6 class="forecast-weather-element-amount" id="forecast-rain-4">...</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- forecast weather (humidity, wind, cloud coverage, rain) end -->
                 </div>
-
               </div>
             </div>
           </div>
@@ -611,17 +777,18 @@
       </div>
 
       <!-- footer section -->
-       <footer>
+      <footer>
         <div class="container">
           <div class="row">
             <div class="col-12 text-center" id="footer">
               <h6 class="developer-details">Developed by <span id="developer">Tanvir Ahmmad</span> &copy; 2025 All Rights Reserved</h6>
-              <span class="data-credit text-muted"> Weather data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> </span>
+              <h6 class="data-credit text-muted"> Weather data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> </h6>
+              <h6 class="data-credit text-muted"> Weather news provided by <a href="https://gnews.io/docs/" target="_blank">GNews API </h6>
+              <!-- <h6 class="data-credit text-muted">Weather news provided by <a href="https://gnews.io/docs/" target="_blank">GNews API</a></h6> -->
             </div>
           </div>
         </div>
       </footer>
-
     </div>
     <!-- jQuery CDN (Full Version) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
