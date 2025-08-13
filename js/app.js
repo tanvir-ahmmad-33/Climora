@@ -50,6 +50,7 @@ function updatetime() {
 
   const timeString = `${hours}:${minutes}:${seconds} ${format}`;
 
+  $("#location-time").text(timeString);
   $("#location-time-1").text(timeString);
   $("#location-time-2").text(timeString);
 }
@@ -239,20 +240,6 @@ $(".celsius-btn").on("click", function () {
     $(".c-f-button-box").addClass("celsius").removeClass("fahrenheit");
     $(".fahrenheit-btn").removeClass("btn-success");
     $(".celsius-btn").addClass("btn-success");
-
-    // for (let idx = 0; idx < 5; idx++) {
-    //   const focastTemperatureText = $(`#forecast-day-${idx}`).find(`#forecast-temperature-${idx}`).text();
-    //   const temperatures = focastTemperatureText.match(/(\d+(\.\d+))/g);
-    //   let minForecastTemperature = parseFloat(temperatures[0]).toFixed(1);
-    //   let maxForecastTemperature = parseFloat(temperatures[1]).toFixed(1);
-
-    //   minForecastTemperature = (((minForecastTemperature - 32) / 9) * 5).toFixed(1);
-    //   maxForecastTemperature = (((maxForecastTemperature - 32) / 9) * 5).toFixed(1);
-
-    //   $(`#forecast-day-${idx}`)
-    //     .find(`#forecast-temperature-${idx}`)
-    //     .text(minForecastTemperature + "°C - " + maxForecastTemperature + "°C");
-    // }
   }
 });
 // ******************************************************************************
@@ -304,6 +291,7 @@ function generateForecastDays() {
     const optionValue = i;
 
     $("#forecast-day").append(`<option value="${optionValue}" class="option-size">${optionText}</option>`);
+    $("#forecast-day-mb").append(`<option value="${optionValue}" class="option-size">${optionText}</option>`);
   }
 }
 
@@ -313,11 +301,13 @@ generateForecastDays();
 // ************ Gnerating per day forecast after search button click ************
 // ******************************************************************************
 
-$("#forecast-form").on("submit", function (e) {
+$("#forecast-form, #forecast-form-1").on("submit", function (e) {
   e.preventDefault();
 
-  const city = $("#search-city-box").val();
-  let forecastDayIdx = $("#forecast-day").val();
+  const isMobile = this.id === "forecast-form-1";
+
+  const city = isMobile ? $("#search-city-box-1").val() : $("#search-city-box").val();
+  let forecastDayIdx = isMobile ? $("#forecast-day-mb").val() : $("#forecast-day").val();
 
   if (city == "" || forecastDayIdx == "") {
     let errorText = "";
@@ -351,12 +341,12 @@ $("#forecast-form").on("submit", function (e) {
     return;
   }
 
-  $("#forecat-search-box").addClass("d-none");
+  $("#forecast-search-box").addClass("d-none");
   $("#forecast-boxes").css({
-    "background-image": "none",
-    "padding-top": "0",
+    background: "linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.6))",
   });
-  $("#forecat-search-result-box").removeClass("d-none");
+
+  $("#forecast-search-result-box").removeClass("d-none");
 
   forecastDayIdx = Number(forecastDayIdx);
 
@@ -385,6 +375,7 @@ $("#forecast-form").on("submit", function (e) {
 
       for (let i = 0; i < 40; i++) {
         let forecast = data.list[i];
+        console.log(forecast);
 
         const forecastDateFromAPI = forecast.dt_txt.split(" ")[0];
         if (forecastCheck === forecastDateFromAPI) {
@@ -410,11 +401,15 @@ $("#forecast-form").on("submit", function (e) {
             else if (degree > 292.5 && degree <= 337.5) return "North-West";
             return "North";
           };
+          const iconCode = forecast.weather[0].icon;
+          let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+          // let iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
           $(`#forecast-place`).text(city);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-title-${idx}`).text(time);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-feels-like-${idx}`).text(feelsLike);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-codition-${idx}`).text(condition);
+          $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-live-icon-${idx}`).attr("src", iconUrl);
           $(`#forecast-describe-box-${idx}`)
             .find(`#forecast-describe-box-temperature-${idx}`)
             .text(minTemperature + " - " + maxTemperature);
@@ -424,6 +419,14 @@ $("#forecast-form").on("submit", function (e) {
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-visibility-amount-${idx}`).text(visibility);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-wind-speed-amount-${idx}`).text(windSpeed);
           $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-wind-degree-amount-${idx}`).text(windDegree);
+
+          // large screen (lg)
+          $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-humidity-amount-lg-${idx}`).text(humidity);
+          $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-cloud-coverage-amount-lg-${idx}`).text(cloudCoverage);
+          $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-air-pressure-amount-lg-${idx}`).text(airPressure);
+          $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-visibility-amount-lg-${idx}`).text(visibility);
+          $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-wind-speed-amount-lg-${idx}`).text(windSpeed);
+          $(`#forecast-describe-box-${idx}`).find(`#forecast-describe-box-wind-degree-amount-lg-${idx}`).text(windDegree);
 
           idx++;
         }

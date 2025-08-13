@@ -21,14 +21,15 @@
     <div class="container-fluid">
       <!-- nav section start -->
       <div class="row">
-        <div class="col-6 col-lg-6">
+        <div class="col-6 col-lg-3 d-flex justify-content-lg-center">
           <div class="icons">
             <i class="fa-solid fa-house-chimney" id="home-icon"></i>
             <i class="fas fa-sun" id="weather-icon"></i>
             <i class="fa-solid fa-newspaper" id="news-icon"></i>
           </div>
         </div>
-        <div class="col-6 col-lg-6">
+        <div class="d-none d-lg-block col-lg-6"></div>
+        <div class="col-6 col-lg-3 d-flex justify-content-end justify-content-lg-center">
           <div class="time-box text-center">
             <h6 id="location-time">...</h6>
           </div>
@@ -38,1002 +39,1607 @@
 
       <!-- forecast section start -->
       <div class="row">
-        <div id="forecast-boxes">
-          <!-- before search -->
-          <div id="forecat-search-box">
-            <div class="col-12 text-center">
-              <nav class="navbar d-flex justify-content-center">
-                <form class="form-inline" id="forecast-form">
-                  <input type="text" name="forecats-city" class="form-control mr-sm-2" id="search-city-box" placeholder="Enter city name" aria-label="Search" />
-                  <select name="forecast-day" id="forecast-day" class="form-control mr-sm-2">
-                    <option value="" class="option-size">** Forecast date **</option>
-                  </select>
-                  <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
-                </form>
-              </nav>
-              <span class="text-danger" id="note-text">The forecast is available for the next 4 days</span>
+        <div class="col-12">
+          <div id="forecast-boxes">
+            <div class="row">
+              <div class="col-12">
+                <!-- before search start -->
+                <div id="forecast-search-box" class="">
+                  <!-- large screen search bar start -->
+                  <div class="d-none d-lg-block">
+                    <nav class="navbar d-flex justify-content-center">
+                      <form class="form-inline" id="forecast-form">
+                        <input type="text" name="forecats-city" class="form-control mr-sm-2" id="search-city-box" placeholder="Enter city name" aria-label="Search" />
+                        <select name="forecast-day" id="forecast-day" class="form-control mr-sm-2">
+                          <option value="" class="option-size">** Forecast date **</option>
+                        </select>
+                        <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+                      </form>
+                    </nav>
+                  </div>
+                  <!-- large screen search bar end -->
+
+                  <!-- mobile screen search bar start -->
+                  <div class="d-lg-none">
+                    <nav class="navbar d-flex justify-content-center">
+                      <form class="form-inline" id="forecast-form-1">
+                        <div class="col-12">
+                          <input type="text" name="forecats-city" class="form-control mr-sm-2" id="search-city-box-1" placeholder="Enter city name" aria-label="Search" />
+                        </div>
+                        <div class="col-12">
+                          <select name="forecast-day" id="forecast-day-mb" class="form-control mr-sm-2">
+                            <option value="" class="option-size">** Forecast date **</option>
+                          </select>
+                        </div>
+                        <div class="col-12">
+                          <button class="btn btn-outline-success" id="search-btn-1" type="submit">Search</button>
+                        </div>
+                      </form>
+                    </nav>
+                  </div>
+                  <!-- mobile screen search bar end -->
+                   
+                  <h6 class="text-lg-center mb-0"><span class="text-danger" id="note-text">The forecast is available for the next 4 days</span></h6>
+                  <h1 id="search-heading" class="text-center text-muted">Check the weather forecast for the city</h1>
+                </div>
+                <!-- before search end -->
+
+                <!-- after search end -->
+                <div id="forecast-search-result-box" class="d-none">
+                  <div class="row">
+                    <!-- back button start -->
+                    <div class="d-none d-lg-block col-lg-3">
+                      <button id="forecast-details-exit-btn" class="btn btn-success">
+                        <i class="fa-solid fa-arrow-left fs-5 mr-1"></i>Back
+                      </button>
+                    </div>
+                    <!-- back button end -->
+
+                    <!-- date name start -->
+                    <div class="col-8 col-lg-6">
+                      <h5 id="forecast-date" class="text-lg-center">13 August, Wednesday</h5>
+                    </div>
+                    <!-- date name end -->
+
+                    <!-- city name start -->
+                    <div class="col-4 col-lg-3 text-right">
+                      <button id="forecast-place" class="btn btn-success">Dhaka</button>
+                    </div>
+                    <!-- city name end -->
+                  </div>
+
+                  <div class="row d-flex flex-row flex-lg-nowrap flex-wrap overflow-auto forecast-container" id="forecast-container">
+
+                    <!-- forecast starts of 12 AM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-2 mb-lg-3" id="forecast-describe-box-0">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-0" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-0" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-0" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-0" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-0">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-0" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-0" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-0" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-0" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-0" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-0" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-0" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-0" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-0" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-0" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-0" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 12 AM end -->
+
+                    <!-- forecast starts of 3 AM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-2 mb-lg-3" id="forecast-describe-box-1">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-1" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-1" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-1" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-1" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-1">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-1" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-1" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-1" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-1" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-1" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-1" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-1" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-1" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-1" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-1" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-1" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 3 AM end -->
+
+                    <!-- forecast starts of 6 AM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-2 mb-lg-3" id="forecast-describe-box-2">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-2" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-2" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-2" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-2" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-2">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-2" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-2" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-2" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-2" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-2" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-2" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-2" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-2" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-2" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-2" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-2" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 6 AM end -->
+
+
+                    <!-- forecast starts of 9 AM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-3 mb-lg-3" id="forecast-describe-box-3">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-3" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-3" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-3" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-3" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-3">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-3" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-3" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-3" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-3" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-3" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-3" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-3" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-3" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-3" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-3" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-3" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 9 AM end -->
+
+                    <!-- forecast starts of 12 PM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-3 mb-lg-3" id="forecast-describe-box-4">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-4" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-4" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-4" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-4" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-4">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-4" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-4" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-4" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-4" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-4" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-4" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-4" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-4" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-4" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-4" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-4" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 12 PM end -->
+
+                    <!-- forecast starts of 3 PM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-3 mb-lg-3" id="forecast-describe-box-5">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-5" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-5" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-5" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-5" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-5">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-5" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-5" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-5" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-5" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-5" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-5" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-5" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-5" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-5" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-5" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-5" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 3 PM end -->
+
+                    <!-- forecast starts of 6 PM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-3 mb-lg-3" id="forecast-describe-box-6">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-6" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-6" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-6" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-6" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-6">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-6" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-6" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-6" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-6" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-6" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-6" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-6" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-6" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-6" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-6" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-6" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 6 PM end -->
+
+                    <!-- forecast starts of 9 PM start -->
+                    <div class="col-12 col-lg-3 forecast-describe-box mr-2 mb-0 mb-lg-3" id="forecast-describe-box-7">
+                      <div class="row">
+                        <div class="col-6">
+                          <h6 id="forecast-describe-box-title-7" class="forecast-describe-box-title text-dark">...</h6>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <button id="forecast-describe-box-temperature-7" class="forecast-describe-box-temperature btn btn-sm btn-light">...</button>
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition start -->
+                      <div class="row">
+                        <div class="col-8">
+                          <h6 id="forecast-describe-box-feels-like-7" class="forecast-describe-box-feels-like text-light">...</h6>
+                          <h6 id="forecast-describe-box-codition-7" class="forecast-describe-box-codition text-light">...</h6>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center h-100">
+                            <img src="..." alt="Live icon" class="forecast-describe-box-live-icon" id="forecast-describe-box-live-icon-7">
+                        </div>
+                      </div>
+                      <!-- forecast describe box title & condition end -->
+                      <hr>
+
+                      <!-- mobile screen start here -->
+                      <div class="d-lg-none">
+                        <!-- humidity & wind speed section start -->
+                        <div class="row">
+                          <!-- humidity section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Humidity</h6>
+                                <h6 id="forecast-describe-box-humidity-amount-7" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                              </div> 
+                            </div>
+                          </div>
+                          <!-- humidity section end -->
+
+                          <!-- wind speed section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9  p-0">
+                                <h6 class="forecast-describe-box-element">Wind speed</h6>
+                                <h6 id="forecast-describe-box-wind-speed-amount-7" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind speed section end -->
+                        </div>
+                        <!-- humidity & wind speed section end -->
+                        
+                        <!-- visibility & wind direction section end -->
+                        <div class="row">
+                          <!-- visibility section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Visibility</h6>
+                                <h6 id="forecast-describe-box-visibility-amount-7" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- visibility section end -->
+
+                          <!-- wind direction section start -->
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Wind direction</h6>
+                                <h6 id="forecast-describe-box-wind-degree-amount-7" class="forecast-describe-box-element-amount"> ... </h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wind direction section end -->
+                        </div>
+                        <!-- visibility & wind direction section end -->
+
+                        <!-- cloud coverage & air pressure section start -->
+                        <div class="row mb-2">
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-left-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                                <h6 id="forecast-describe-box-cloud-coverage-amount-7" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="col-6 p-0">
+                            <div class="row forecast-element-right-box">
+                              <div class="col-9 p-0">
+                                <h6 class="forecast-describe-box-element">Air Pressure</h6>
+                                <h6 id="forecast-describe-box-air-pressure-amount-7" class="forecast-describe-box-element-amount">...</h6>
+                              </div>
+                              <div class="col-3 d-flex justify-content-center">
+                                <img src="assets/icon/air-pressure.png" alt="air pressure image" class="forecast-data-icon" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- cloud coverage & air pressure section start -->
+                      </div>
+                      <!-- mobile section ends here -->
+                      
+                      <!-- large screen section starts here -->
+                      <div class="d-none d-lg-block">
+                        <!-- humidity section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Humidity</h6>
+                            <h6 id="forecast-describe-box-humidity-amount-lg-7" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
+                          </div> 
+                        </div>
+                        <!-- humidity section end -->
+
+                        <!-- wind speed section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind speed</h6>
+                            <h6 id="forecast-describe-box-wind-speed-amount-lg-7" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-speed.png" alt="Wind speed image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind speed section end -->
+
+                        <!-- wind direction section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Wind direction</h6>
+                            <h6 id="forecast-describe-box-wind-degree-amount-lg-7" class="forecast-describe-box-element-amount"> ... </h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/wind-direction.png" alt="Wind direction image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- wind direction section end -->
+
+                        <!-- visibility section start -->
+                        <div class="row forecast-element-box mb-1">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Visibility</h6>
+                            <h6 id="forecast-describe-box-visibility-amount-lg-7" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/visibility.png" alt="visibility image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- visibility section end -->
+
+                        <!-- cloud coverage section start -->
+                        <div class="row forecast-element-box mb-3">
+                          <div class="col-8">
+                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
+                            <h6 id="forecast-describe-box-cloud-coverage-amount-lg-7" class="forecast-describe-box-element-amount">...</h6>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <img src="assets/icon/cloud-coverage.png" alt="cloud coverage image" class="forecast-data-icon" />
+                          </div>
+                        </div>
+                        <!-- cloud coverage section end -->
+                      </div>
+                      <!-- large screen section ends here -->
+                      
+                    </div>
+                    <!-- forecast starts of 9 PM end -->
+                  </div>
+
+                  <!-- mobile screen back button start -->
+                  <div class="row d-lg-none">
+                    <div class="col d-flex justify-content-end">
+                      <button id="forecast-details-exit-btn" class="btn btn-success">
+                        <i class="fa-solid fa-arrow-left fs-5 mr-1"></i>Back
+                      </button>
+                    </div>
+                  </div>
+                  <!-- mobile screen back button end -->
+                </div>
+                <!-- after search end -->
+              </div>
             </div>
-            <h1 id="search-heading" class="text-center text-muted">Check the weather forecast for the city</h1>
           </div>
-
-          <!-- after search start -->
-          <div id="forecat-search-result-box" class="d-none">
-            <!-- forecast date start -->
-            <div id="focast-date-title">
-              <div class="row align-items-center">
-                <!-- heading forecast page exit start -->
-                <div class="col-4 text-left">
-                  <button id="forecast-details-exit-btn" class="btn btn-sm btn-success"><i class="fa-solid fa-arrow-left fs-5 mr-2"></i>Back</button>
-                </div>
-                <!-- heading forecast page exit end -->
-
-                <!-- heading forecast date start -->
-                <div class="col-4 text-center">
-                  <!-- <img src="assets/icon/map.png" id="forecast-details-city-icon" alt="Location icon" />
-                  <span id="forecast-place">...</span> -->
-                  <span id="forecast-date">...</span>
-                </div>
-                <!-- heading forecast date end -->
-
-                <!-- heading city name start -->
-                <div class="col-4 text-right">
-                  <img src="assets/icon/map.png" id="forecast-details-city-icon" alt="Location icon" />
-                  <span id="forecast-place">...</span>
-                </div>
-                <!-- heading city name end -->
-              </div>
-            </div>
-            <!-- forecast date end -->
-
-            <!-- forecast 3 hours details start -->
-            <div id="focast-date-time-details">
-              <!-- first 4 time of the forcast start -->
-              <div class="row ml-1 mr-1 mb-1">
-                <!-- 12:00 AM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-0">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-0" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-0" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-0" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-0" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-0" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-0" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-0" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-0" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-0" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-0" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 12:00 AM -->
-
-                <!-- 3:00 AM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-1">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-1" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-1" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-1" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-1" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-1" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-1" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-1" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-1" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-1" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-1" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 3:00 AM -->
-
-                <!-- 6:00 AM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-2">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-2" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-2" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-2" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-2" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-2" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-2" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-2" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-2" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-2" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-2" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 6:00 AM -->
-
-                <!-- 9:00 AM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-3">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-3" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-3" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-3" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-3" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-3" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-3" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-3" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-3" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-3" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-3" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 9:00 AM -->
-              </div>
-              <!-- first 4 time of the forcast end -->
-
-              <!-- second 4 time of the forcast start -->
-              <div class="row ml-1 mr-1">
-                <!-- 12:00 PM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-4">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-4" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-4" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-4" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-4" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-4" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-4" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-4" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-4" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-4" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-4" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 12:00 PM -->
-
-                <!-- 3:00 PM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-5">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-5" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-5" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-5" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-5" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-5" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-5" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-5" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-5" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-5" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-5" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 3:00 PM -->
-
-                <!-- 6:00 PM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-6">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-6" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-6" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-6" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-6" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-6" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-6" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-6" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-6" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-6" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-6" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 6:00 PM -->
-
-                <!-- 9:00 PM -->
-                <div class="col-12 col-lg-3 p-1">
-                  <div class="forecast-describe-box" id="forecast-describe-box-7">
-                    <!-- forecast describe box title & condition start -->
-                    <div class="row">
-                      <div class="col-6">
-                        <h6 id="forecast-describe-box-title-7" class="forecast-describe-box-title text-dark">...</h6>
-                        <h6 id="forecast-describe-box-feels-like-7" class="forecast-describe-box-feels-like text-light">...</h6>
-                        <h6 id="forecast-describe-box-codition-7" class="forecast-describe-box-codition text-light">...</h6>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button id="forecast-describe-box-temperature-7" class="forecast-describe-box-temperature btn btn-light btn-sm">....</button>
-                      </div>
-                    </div>
-                    <!-- forecast describe box title & condition end -->
-
-                    <!-- forecast describe box (Humidity & cloud coverage) start -->
-                    <div class="row mt-2">
-                      <!-- Element humidity start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Humidity</h6>
-                            <h6 id="forecast-describe-box-humidity-amount-7" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/humidity.png" alt="Humidity image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element humidity end -->
-
-                      <!-- Element cloud coverage start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Cloud coverage</h6>
-                            <h6 id="forecast-describe-box-cloud-coverage-amount-7" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/cloud-coverage.png" alt="Cloud coverage image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element cloud coverage end -->
-                    </div>
-                    <!-- forecast describe box (Humidity & cloud coverage) end -->
-
-                    <!-- forecast describe box (air pressure & visibility) start -->
-                    <div class="row">
-                      <!-- Element air pressure start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Air Pressure</h6>
-                            <h6 id="forecast-describe-box-air-pressure-amount-7" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/air-pressure.png" alt="Air pressure image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element air pressure end -->
-
-                      <!-- Element visibility start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Visibility</h6>
-                            <h6 id="forecast-describe-box-visibility-amount-7" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/visibility.png" alt="Visibility image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element visibility end -->
-                    </div>
-                    <!-- forecast describe box (air pressure & visibility) end -->
-
-                    <!-- forecast describe box (wind speed & wind degree) start -->
-                    <div class="row">
-                      <!-- Element wind speed start -->
-                      <div class="col forecast-describe-box-element-left">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Speed</h6>
-                            <h6 id="forecast-describe-box-wind-speed-amount-7" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-speed.png" alt="Wind speeed image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind speed end -->
-
-                      <!-- Element wind degree start -->
-                      <div class="col forecast-describe-box-element-right">
-                        <div class="row bg-light rounded">
-                          <div class="col-9 p-1">
-                            <h6 class="forecast-describe-box-element">Wind Degree</h6>
-                            <h6 id="forecast-describe-box-wind-degree-amount-7" class="forecast-describe-box-element-amount">...</h6>
-                          </div>
-                          <div class="col-3 p-1">
-                            <img src="assets/icon/wind-direction.png" alt="Wind degree image" class="forecast-data-icon" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Element wind degree end -->
-                    </div>
-                    <!-- forecast describe box (wind speed & wind degree) end -->
-                  </div>
-                </div>
-                <!-- 9:00 PM -->
-              </div>
-              <!-- second 4 time of the forcast end -->
-            </div>
-            <!-- forecast 3 hours details end -->
-          </div>
-          <!-- after search end -->
         </div>
       </div>
       <!-- forecast section end -->
 
-      <!-- footer section -->
+      <!-- footer section start -->
       <footer>
         <div class="container">
           <div class="row">
             <div class="col-12 text-center" id="footer">
-              <h6 class="developer-details">Developed by <span id="developer">Tanvir Ahmmad</span> &copy;2025 All Rights Reserved</h6>
-              <span class="data-credit text-muted"> Weather data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> </span>
+              <h6 class="developer-details">Developed by <span id="developer">Tanvir Ahmmad</span> &copy; 2025 All Rights Reserved</h6>
+              <h6 class="data-credit text-muted"> Weather data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> </h6>
+              <h6 class="data-credit text-muted"> Weather news provided by <a href="https://gnews.io/docs/" target="_blank">GNews API </h6>
+              <!-- <h6 class="data-credit text-muted">Weather news provided by <a href="https://gnews.io/docs/" target="_blank">GNews API</a></h6> -->
             </div>
           </div>
         </div>
       </footer>
-      <!-- footer section -->
+      <!-- footer section end -->
     </div>
 
     <!-- jQuery CDN (Full Version) -->

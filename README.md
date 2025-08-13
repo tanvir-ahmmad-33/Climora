@@ -18,9 +18,9 @@ Climora is a simple, real-time weather web application that allows users to chec
 - **Frontend**: HTML, CSS, Bootstrap, JavaScript, jQuery
 - **API**:
   - **OpenWeatherMap API** (for weather data)
-  - **NewsAPI** (for fetching weather-related news)
+  - **GNews API** (for fetching weather-related news)
 
 ## 🔧 Prerequisites
 
-- A modern web browser (Chrome, Brave, Firefox, Safari, etc.)
+- A modern web browser (Chrome, Firefox, Safari, etc.)
 - Internet connection to fetch real-time weather data from the OpenWeatherMap API & weather news from the NewsAPI
